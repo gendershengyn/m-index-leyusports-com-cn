@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斗牛游戏 · 简明指南与说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f4f7;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉区 */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f9fafc);
+            border-radius: 28px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #e6eaf0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+        }
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 680px;
+            margin: 0 auto 0.6rem auto;
+            border-left: 3px solid #b1c2da;
+            padding-left: 1rem;
+            text-align: left;
+        }
+        .hero .subhead:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 620px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 6px 12px -6px rgba(0,0,0,0.04);
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e6eaf0;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 20px -6px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 540;
+            margin-bottom: 0.75rem;
+            color: #1e293b;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card p, .card ul {
+            font-size: 0.98rem;
+            color: #334155;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.6rem;
+        }
+        .card li {
+            padding: 0.25rem 0 0.25rem 1.3rem;
+            position: relative;
+        }
+        .card li::before {
+            content: "•";
+            position: absolute;
+            left: 0.2rem;
+            color: #7c8ba6;
+            font-weight: 500;
+        }
+        .card .badge {
+            display: inline-block;
+            background: #eef2f6;
+            border-radius: 30px;
+            padding: 0.15rem 1rem;
+            font-size: 0.75rem;
+            color: #2c3e50;
+            margin-top: 0.8rem;
+            border: 1px solid #dce2ea;
+        }
+
+        /* 自然链接段落 + 提示区 */
+        .context-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #e6eaf0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .context-section h3 {
+            font-size: 1.2rem;
+            font-weight: 540;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        .context-section p {
+            margin-bottom: 1.2rem;
+        }
+        .context-section p:last-child {
+            margin-bottom: 0;
+        }
+        .link-note {
+            background: #f6f8fb;
+            padding: 1rem 1.4rem;
+            border-radius: 18px;
+            border: 1px solid #e0e5ec;
+            display: inline-block;
+            margin-top: 0.3rem;
+            font-size: 0.95rem;
+        }
+        .link-note a {
+            color: #1f4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b7c9e0;
+            transition: border 0.15s;
+        }
+        .link-note a:hover {
+            border-bottom: 2px solid #1f4a7a;
+        }
+
+        .faq-summary {
+            margin-top: 2rem;
+            border-top: 1px solid #e6eaf0;
+            padding-top: 1.6rem;
+        }
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+            background: #f9fafc;
+            border-radius: 14px;
+            padding: 0.4rem 1rem 0.4rem;
+            border: 1px solid #e7ecf2;
+        }
+        .faq-summary summary {
+            font-weight: 480;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            color: #1e293b;
+        }
+        .faq-summary details p {
+            margin: 0.4rem 0 0.6rem 0;
+            color: #475569;
+            font-size: 0.95rem;
+            padding-left: 0.4rem;
+        }
+
+        .footnote {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            padding: 1.2rem 0 0.2rem;
+            border-top: 1px solid #e0e5ec;
+            margin-top: 1.8rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0e5ec;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>斗牛游戏 · 简明指南</h1>
+        <div class="subhead">⚡ 规则清晰 · 节奏明快 · 适合短时休闲</div>
+        <div class="subhead">✔ 出发前了解基本玩法，上手更从容</div>
+    </div>
+
+    <!-- 信息卡片网格：用途 + 适合人群 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>📋 常见用途</h2>
+            <p>斗牛游戏在很多场合被当作一种轻松的牌类消遣，常见于朋友聚会、线上快速对局或独自练习。以下是一些典型场景：</p>
+            <ul>
+                <li>小型社交局：规则易懂，两三分钟即可完成一局</li>
+                <li>碎片时间娱乐：无需复杂准备，有网络或简单道具就能开始</li>
+                <li>熟悉组合策略：通过反复练习理解牌型与胜负关系</li>
+                <li>日常放松：低门槛的玩法让注意力自然转移</li>
+            </ul>
+            <span class="badge">🎯 侧重参与感</span>
+        </div>
+
+        <div class="card">
+            <h2>👥 适合人群</h2>
+            <p>如果你符合以下任意一条，那么斗牛游戏的节奏很可能适合你：</p>
+            <ul>
+                <li>喜欢简单快速对决、不拖沓的玩家</li>
+                <li>想了解传统扑克比大小变体玩法的新手</li>
+                <li>寻找低门槛、不依赖语言或文化背景的牌戏</li>
+                <li>已经熟悉其他扑克游戏、希望多一些变化</li>
+                <li>偶尔需要短时放松、不愿长时间盯盘的休闲玩家</li>
+            </ul>
+            <span class="badge">🧩 无需复杂记忆</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + 访问提醒 -->
+    <div class="context-section">
+        <h3>🔍 从访问提醒到理性尝试</h3>
+        <p>
+            在开始之前，建议先了解清楚游戏的基本流程：每局如何发牌、如何组牌型、牛几如何比较。
+            提前确认规则细节能帮你避免不必要的误解，尤其当参与人数或变体规则不同时。
+            我们整理了一份关于 <strong>斗牛游戏</strong> 的基础说明，方便你快速建立整体印象。
+        </p>
+        <p>
+            如果你希望进一步了解常见的牌型组合、大小比较逻辑或者局内注意事项，可以视需要查阅更完整的介绍。
+            很多人第一次接触时都会先熟悉“无牛”“牛一”到“牛牛”的层次，再进入对局。
+            记住：<strong>任何游戏，先弄清规则，再享受乐趣。</strong>
+        </p>
+        <div class="link-note">
+            📎 如果你还没看过，可以了解一下 <a href="https://games-bullfighting.com">斗牛游戏</a> 的基本介绍，里面包含比较完整的规则框架和常见问题。
+        </div>
+
+        <div class="faq-summary">
+            <details>
+                <summary>🧾 简要FAQ：斗牛游戏通常用几副牌？</summary>
+                <p>大多数常见版本使用一副扑克牌（不含大小王），但部分变体会调整牌数。建议进入具体房间或阅读说明前先确认牌具配置。</p>
+            </details>
+            <details>
+                <summary>⚖️ “牛”的大小比较原则是什么？</summary>
+                <p>一般规则是：先看特殊牌型（如五花、炸弹等），其次比较牛点数，点数相同则比单张最大牌。具体以当前对局约定为准。</p>
+            </details>
+            <details>
+                <summary>🔄 适合新手直接参与吗？</summary>
+                <p>非常合适。斗牛游戏的核心逻辑比较直观，新手只需了解牌型组合和比较顺序就能上场。建议先旁观几局或使用练习模式熟悉节奏。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 额外说明：理性参与、负责任提示 -->
+    <div style="background: #ffffff; border-radius: 24px; padding: 1.6rem 1.8rem; border: 1px solid #e6eaf0; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
+        <p style="margin-bottom: 0.6rem; font-weight: 450;">📌 负责任提醒</p>
+        <p style="color: #475569; font-size: 0.95rem;">
+            任何纸牌游戏都应以娱乐和放松为目的。请合理安排时间，不沉迷、不冲动。
+            了解规则能帮您做出更清醒的决策。如果您在游戏过程中感到不适，请随时暂停休息。
+        </p>
+        <p style="margin-top: 0.8rem; font-size: 0.88rem; color: #64748b;">
+            <span style="background: #eff2f6; padding: 0.1rem 0.8rem; border-radius: 30px;">适度游戏 · 保持理性</span>
+        </p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footnote">
+        此页面为信息介绍页 · 内容仅供说明参考
+    </div>
+</div>
+</body>
+</html>
